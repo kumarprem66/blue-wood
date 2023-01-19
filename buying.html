@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .nav {
+      display: flex;
+      background-color: blue;
+      height: 70px;
+      align-items: center;
+    }
+    .nav > img {
+      margin-left: 15px;
+      width: 100px;
+    }
+
+    #gotohome {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      margin-left: 13%;
+    }
+    .container {
+      width: 60%;
+
+      margin: auto;
+    }
+    .container > div:nth-child(1) > div > p {
+      font-size: 20px;
+      color: blue;
+    }
+    .container > div:nth-child(2) > div > p {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .container > div{
+        background-color: lightsteelblue;
+     
+      align-items: center;
+      margin-bottom: 2px;
+      padding: 20px;
+    }
+
+    .container > div>div:nth-child(1) {
+      background-color: lightsteelblue;
+      display: flex;
+      align-items: center;
+    
+    }
+
+    .container > div > div:nth-child(2) {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .container > div > div:nth-child(2) > label {
+      padding: 10px;
+    }
+
+    .container > div > div:nth-child(2) > input {
+      padding: 10px;
+    }
+
+    .container > div > div:nth-child(2) > button {
+      padding: 10px 20px;
+    }
+
+    .container > div > div > input[type="radio"] {
+      margin-right: 10px;
+    }
+    #continue {
+      position: absolute;
+      bottom: 50px;
+      right: 100px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+    }
+
+    #add_address {
+      cursor: pointer;
+    }
+
+    body {
+      background: linear-gradient(to right, #3a7bd5, #3a6073);
+      height: 100vh;
+    }
+  </style>
+  <body>
+    <div class="nav">
+      <a id="gotohome" href="index.html">Home</a>
+      <img src="./images/ikealogo.png" alt="" />
+    </div>
+
+    <div class="container">
+      <div>
+        <div>
+          <input type="radio" id="paytm" name="pay" />
+          <p>Paytm Wallet</p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <input type="radio" id="google" name="pay" />
+          <p>Google Pay UPI</p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <input type="radio" id="credit" name="pay" />
+          <h3>Credit/Debit/ATM Card</h3>
+        </div>
+      </div>
+      <div>
+        <div>
+          <input type="radio" id="net" name="pay" />
+          <h3>Net Banking</h3>
+        </div>
+      </div>
+      <div>
+        <div>
+          <input type="radio" id="cash" name="pay" />
+          <h3>Cash on Delivery</h3>
+        </div>
+      </div>
+    </div>
+
+    <button id="continue">Continue</button>
+  </body>
+
+  <script>
+    let checked = document.getElementById("paytm");
+
+    let container = document.querySelector(".container div");
+
+    checked.addEventListener("change", function () {
+      let divin = document.createElement("div");
+      let label = document.createElement("label");
+      label.innerText = "Link Your Number";
+
+      let inp = document.createElement("input");
+      inp.type = "Number";
+
+      let confirmed = document.createElement("button");
+      confirmed.innerText = "Pay";
+
+      divin.append(label, inp, confirmed);
+
+      container.append(divin);
+    });
+  </script>
+</html>
