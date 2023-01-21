@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <title>Document</title>
+</head>
+<style>
+
+/* body{
+    height: 100vh;
+} */
+.content{
+    display: flex;
+    /* flex-wrap: wrap; */
+    padding: 30px;
+}
+
+.swiper {
+      width: 90%;
+     
+}
+.content .card{
+    width: 200px;
+    height: 400px;
+    background: blue;
+    margin: 20px;
+}
+
+</style>
+<body>
+    <div class="swiper mySwiper container">
+        <div class="swiper-wrapper content">
+          <div class="swiper-slide card">Slide 1</div>
+          <div class="swiper-slide card">Slide 2</div>
+          <div class="swiper-slide card">Slide 3</div>
+          <div class="swiper-slide card">Slide 4</div>
+          <div class="swiper-slide card">Slide 5</div>
+          <div class="swiper-slide card">Slide 6</div>
+          <div class="swiper-slide card">Slide 7</div>
+          <div class="swiper-slide card">Slide 8</div>
+          <div class="swiper-slide card">Slide 9</div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</html>

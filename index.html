@@ -31,6 +31,7 @@
 
       grid-template-columns: 68% 30%;
       margin: auto;
+      
       column-gap: 20px;
     }
     .hero_item_left {
@@ -590,7 +591,7 @@
     </div>
 
     <h1 class="bottom_head_line">A world of inspiration for your home</h1>
-    <div class="com_logo"><img src="./LALLU-FUR.png" alt="" /></div>
+    <div class="com_logo"><img src="./images/LALLU-FUR.png" alt="" /></div>
 
     <div class="bottom">
       <img
@@ -615,4 +616,12 @@
       </div>
     </div>
   </body>
+
+  <script>
+    let go_to_shopping = document.querySelector(".hero_item_right>div:nth-child(1");
+    go_to_shopping.addEventListener("click",function(){
+      console.log("hello");
+      window.location.href = "mainpage2.html"
+    })
+  </script>
 </html>

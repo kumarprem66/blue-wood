@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+    * {
+      font-family: "Poppings", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+
+    body{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background: #f2f2f2;
+    }
+
+    section{
+        position: relative;
+        background: red;
+        display: flex;
+        /* height: 450px; */
+        width: 1075px;
+        align-items: center;
+    }
+    .swiper{
+        width: 950px;
+
+    }
+
+    section .card .image {
+      height: 140px;
+      width: 140px;
+      padding: 3px;
+      background: #7d2ae8;
+      
+      border-radius: 50%;
+    }
+
+    section .card .image img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #fff;
+    }
+
+    .card{
+        background: #fff;
+        /* background-color: rebeccapurple; */
+        border-radius: 20px;
+        position: relative;
+        /* border: 1px solid yellow; */
+        /* margin: 20px 20px; */
+
+        width: 280px;
+    }
+
+    .card .card_content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        position: relative;
+        /* border: 1px solid red; */
+        z-index: 100;
+        
+    }
+
+    .card::before{
+        content: "";
+        position: absolute;
+        height: 45%;
+        width: 100%;
+        background: #7d2ae8;
+        border-radius: 20px 20px 0 0;
+        
+
+    }
+
+    .card .media-icons{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card .media-icons i{
+        margin-top: 10px;
+        color: #fff;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .card .media-icons i:hover{
+        opacity: 1;
+
+    }
+
+    .card .name-profession{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        
+        color: #333;
+
+    }
+
+    .name-profession .name{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .name-profession .profession{
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .card .rating{
+        display: flex;
+        align-items: center;
+        margin-top: 18px;
+    }
+    
+    .card .rating i{
+        font-size: 18px;
+        margin: 0 2px;
+        color: #7d2ae8;
+    }
+
+    .card .button{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .card .button button{
+        background: #7d2ae8;
+        outline: none;
+        border: none;
+        color: #fff;
+        padding: 8px 22px;
+        border-radius: 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .button button:hover{
+        background: #6616d0;
+    }
+
+    .swiper-pagination-bullet{
+        height: 7px;
+        width: 26px;
+        border-radius: 25px;
+        background: #6616d0;
+    }
+
+    
+
+  </style>
+  <body>
+    <section>
+      <div class="swiper mySwiper container">
+        <div class="swiper-wrapper content">
+
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+         
+          
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide card">
+
+            <div class="card_content">
+              <div class="image">
+                <img src="../images/apna7.jpg" alt="" />
+              </div>
+
+              <div class="media-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+
+              <div class="name-profession">
+                <span class="name">Prem Kumar</span>
+                <span class="profession">Web Developer</span>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+
+              <div class="button">
+                <button class="about-me">hire me</button>
+                <button class="hire-me">about me</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        
+
+
+        </div>
+      </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </section>
+  </body>
+ <!-- Swiper JS -->
+ <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+ <!-- Initialize Swiper -->
+ <script>
+   var swiper = new Swiper(".mySwiper", {
+     slidesPerView: 3,
+     spaceBetween: 30,
+     slidesPerGroup: 3,
+     loop: true,
+     loopFillGroupWithBlank: true,
+     pagination: {
+       el: ".swiper-pagination",
+       clickable: true,
+     },
+     navigation: {
+       nextEl: ".swiper-button-next",
+       prevEl: ".swiper-button-prev",
+     },
+   });
+ </script>
+</html>

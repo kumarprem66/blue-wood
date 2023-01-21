@@ -19,7 +19,9 @@
     />
   </head>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     * {
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -70,6 +72,7 @@
       text-decoration: none;
       background-color: rgb(183, 190, 197);
       border: none;
+      outline: none;
       padding: 10px;
     }
 
@@ -79,6 +82,14 @@
       align-items: center;
     }
 
+    #search_icon{
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    #cart_btn{
+      cursor: pointer;
+    }
     .nav {
       display: flex;
       padding: 10px;
@@ -87,6 +98,14 @@
     .nav > h3 {
       margin-right: 20px;
       font-size: 17px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .nav >h3:nth-child(1){
+      color: blue;
+    }
+    .nav >h3:hover{
+      color: blue;
     }
 
     #main_cont {
@@ -112,9 +131,11 @@
 
     .product_con > div {
       border: 0.5px solid darkgray;
+      border-radius: 10px;
     }
     .product_con > div > img {
       width: 100%;
+      border-radius: 10px;
     }
     .product_con > div > div {
       padding-top: 30px;
@@ -172,7 +193,7 @@
     .bottom_privacy {
       display: grid;
       grid-template-columns: 10% 90%;
-      margin-bottom: 50px;
+      margin-bottom: 10px;
     }
     .bottom_privacy > div:nth-child(1) {
       width: 100%;
@@ -217,7 +238,7 @@
       <div>
         <span class="material-icons"> photo_camera </span>
         <input type="text" placeholder="what are you looking for?" />
-        <span class="material-icons"> search </span>
+        <span class="material-icons" id="search_icon"> search </span>
       </div>
 
       <div>
@@ -225,8 +246,8 @@
           <span class="material-icons"> person </span>
           <h3>Hey! Log in or sign up</h3>
         </div>
-        <i class="fa-solid fa-cart-flatbed-boxes" id="cart_btn">cart</i>
-        <i class="fa-solid fa-truck-container" id="truck">track</i>
+        <i class="fa-solid fa-van-shuttle" ></i>
+        <i class="fa-solid fa-cart-shopping" id="cart_btn"></i>
       </div>
     </div>
 
@@ -269,222 +290,111 @@
       </div>
 
       <div class="product_con">
-        <!-- <div>
-          <img
-            src="https://www.ikea.com/in/en/images/products/sibbhult-bracket-white__0833966_pe778131_s5.jpg?f=xxxs"
-            alt=""
-          />
-          <div>
-            <h2>SIBBHULT</h2>
-            <p>Bracket,18x18 cm (7x7")</p>
-            <p><span>Rs</span>70</p>
-            <div>******</div>
-            <i>🤍</i>
-            <button>Add to Cart</button>
-          </div>
-        </div>
+       
+         
+        
+       
 
-        <div>
-          <img
-            src="https://www.ikea.com/in/en/images/products/sibbhult-bracket-white__0833966_pe778131_s5.jpg?f=xxxs"
-            alt=""
-          />
-          <div>
-            <h2>SIBBHULT</h2>
-            <p>Bracket,18x18 cm (7x7")</p>
-            <p><span>Rs</span>70</p>
-            <div>******</div>
-            <i>🤍</i>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div>
-          <img
-            src="https://www.ikea.com/in/en/images/products/sibbhult-bracket-white__0833966_pe778131_s5.jpg?f=xxxs"
-            alt=""
-          />
-          <div>
-            <h2>SIBBHULT</h2>
-            <p>Bracket,18x18 cm (7x7")</p>
-            <p><span>Rs</span>70</p>
-            <div>******</div>
-            <i>🤍</i>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div>
-          <img
-            src="https://www.ikea.com/in/en/images/products/sibbhult-bracket-white__0833966_pe778131_s5.jpg?f=xxxs"
-            alt=""
-          />
-          <div>
-            <h2>SIBBHULT</h2>
-            <p>Bracket,18x18 cm (7x7")</p>
-            <p><span>Rs</span>70</p>
-            <div>******</div>
-            <i>🤍</i>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div>
-          <img
-            src="https://www.ikea.com/in/en/images/products/sibbhult-bracket-white__0833966_pe778131_s5.jpg?f=xxxs"
-            alt=""
-          />
-          <div>
-            <h2>SIBBHULT</h2>
-            <p>Bracket,18x18 cm (7x7")</p>
-            <p><span>Rs</span>70</p>
-            <div>******</div>
-            <i>🤍</i>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div>
-          <img
-            src="https://www.ikea.com/in/en/images/products/sibbhult-bracket-white__0833966_pe778131_s5.jpg?f=xxxs"
-            alt=""
-          />
-          <div>
-            <h2>SIBBHULT</h2>
-            <p>Bracket,18x18 cm (7x7")</p>
-            <p><span>Rs</span>70</p>
-            <div>******</div>
-            <i>🤍</i>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div>
-          <img
-            src="https://www.ikea.com/in/en/images/products/sibbhult-bracket-white__0833966_pe778131_s5.jpg?f=xxxs"
-            alt=""
-          />
-          <div>
-            <h2>SIBBHULT</h2>
-            <p>Bracket,18x18 cm (7x7")</p>
-            <p><span>Rs</span>70</p>
-            <div>******</div>
-            <i>🤍</i>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div>
-          <img
-            src="https://www.ikea.com/in/en/images/products/sibbhult-bracket-white__0833966_pe778131_s5.jpg?f=xxxs"
-            alt=""
-          />
-          <div>
-            <h2>SIBBHULT</h2>
-            <p>Bracket,18x18 cm (7x7")</p>
-            <p><span>Rs</span>70</p>
-            <div>******</div>
-            <i>🤍</i>
-            <button>Add to Cart</button>
-          </div>
-        </div> -->
+        
       </div>
 
-      <div class="bottom">
-        <div>
-          <div>
-            <h4>Join IKEA Family</h4>
-            <p>
-              Enjoy guaranteed discounts, special previews, food offers and much
-              more. Sign up today - it’s free and only takes a minute to join.
-            </p>
+   
+    </div>
 
-            <button>Join the club</button>
-          </div>
-          <div>
-            <h4>IKEA for Business</h4>
-            <p>
-              Our business & design experts help you with flexible,affordable
-              and sustainabe solutions. Create a better life at work with us
-            </p>
-            <button>Join now</button>
-          </div>
-        </div>
-
+    <div class="bottom">
+      <div>
         <div>
-          <h4>BLUE-WOOD Family</h4>
-          <p>Log in</p>
-          <p>Join BLUE-WOOD Family</p>
-          <p>Members offers</p>
-          <p>Workshops & Events</p>
-        </div>
+          <h4>Join IKEA Family</h4>
+          <p>
+            Enjoy guaranteed discounts, special previews, food offers and much
+            more. Sign up today - it’s free and only takes a minute to join.
+          </p>
 
-        <div>
-          <h4>Services</h4>
-          <p>Design your room</p>
-          <p>Delivery Service</p>
-          <p>Installation Service</p>
-          <p>Assembly Service</p>
-          <p>Kitchen Planning</p>
-          <p>Measuring Servies</p>
-          <p>Customer Services</p>
-          <p>Recylcle Program</p>
-          <p>Track Your Order</p>
-          <p>Click & collect</p>
-        </div>
-
-        <div>
-          <h4>Help</h4>
-          <p>How to shop</p>
-          <p>Return policy</p>
-          <p>Prices and price tags</p>
-          <p>Contact us</p>
-          <p>FAQ's</p>
-          <p>Planners</p>
-          <p>Size guide- Beds & mattresses</p>
-          <p>Buying guides</p>
-          <p>Gift Card</p>
-          <p>Feedback</p>
+          <button>Join the club</button>
         </div>
         <div>
-          <h4>About BLUE-WOOD</h4>
-          <p>This is BLUE-WOOD</p>
-          <p>Working at WOOD</p>
-          <p>Newsroom</p>
-          <p>Sustainabily</p>
-          <p>IKEA Stores</p>
-          <p>IKEA Restaurant</p>
-          <p>IKEA for Business</p>
+          <h4>IKEA for Business</h4>
+          <p>
+            Our business & design experts help you with flexible,affordable
+            and sustainabe solutions. Create a better life at work with us
+          </p>
+          <button>Join now</button>
         </div>
       </div>
 
-      <div class="social_link">
-        <div>
-          <i class="fa-brands fa-square-youtube"></i>
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-instagram"></i>
-        </div>
-        <div>
-          <div>
-            <span class="material-icons"> language </span>Change country
-          </div>
-        </div>
+      <div>
+        <h4>BLUE-WOOD Family</h4>
+        <p>Log in</p>
+        <p>Join BLUE-WOOD Family</p>
+        <p>Members offers</p>
+        <p>Workshops & Events</p>
       </div>
 
-      <div class="bottom_privacy">
-        <div>
-          <i class="fa-solid fa-arrow-up"></i>
-        </div>
+      <div>
+        <h4>Services</h4>
+        <p>Design your room</p>
+        <p>Delivery Service</p>
+        <p>Installation Service</p>
+        <p>Assembly Service</p>
+        <p>Kitchen Planning</p>
+        <p>Measuring Servies</p>
+        <p>Customer Services</p>
+        <p>Recylcle Program</p>
+        <p>Track Your Order</p>
+        <p>Click & collect</p>
+      </div>
 
+      <div>
+        <h4>Help</h4>
+        <p>How to shop</p>
+        <p>Return policy</p>
+        <p>Prices and price tags</p>
+        <p>Contact us</p>
+        <p>FAQ's</p>
+        <p>Planners</p>
+        <p>Size guide- Beds & mattresses</p>
+        <p>Buying guides</p>
+        <p>Gift Card</p>
+        <p>Feedback</p>
+      </div>
+      <div>
+        <h4>About BLUE-WOOD</h4>
+        <p>This is BLUE-WOOD</p>
+        <p>Working at WOOD</p>
+        <p>Newsroom</p>
+        <p>Sustainabily</p>
+        <p>IKEA Stores</p>
+        <p>IKEA Restaurant</p>
+        <p>IKEA for Business</p>
+      </div>
+    </div>
+
+    <div class="social_link">
+      <div>
+        <i class="fa-brands fa-square-youtube"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+      <div>
         <div>
-          <p>© Inter IKEA Systems B.V. 2000-2023</p>
-          <div>
-            <span>Privacy policy</span>
-            <span>Cookie policy</span>
-            <span>Cookie settings</span>
-            <span>Terms and Condition</span>
-          </div>
+          <span class="material-icons"> language </span>Change country
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom_privacy">
+      <div>
+        <i class="fa-solid fa-arrow-up"></i>
+      </div>
+
+      <div>
+        <p>© Inter IKEA Systems B.V. 2000-2023</p>
+        <div>
+          <span>Privacy policy</span>
+          <span>Cookie policy</span>
+          <span>Cookie settings</span>
+          <span>Terms and Condition</span>
         </div>
       </div>
     </div>
@@ -494,6 +404,7 @@
     let productcon = document.querySelector(".product_con");
 
     let localdata = JSON.parse(localStorage.getItem("cart_item")) || [];
+    // let searchdata = JSON.parse(localStorage.getItem("searchitem")) || [];
 
     let url = "https://63c9170d320a0c4c9540575f.mockapi.io/products";
     let alldata = [];
@@ -502,12 +413,16 @@
       let products = await fetch(url);
       products = await products.json();
       // console.log(products);
+      alldata = products;
       displaydata(products);
     }
+
+    // fetchdata(url);
 
     fetchdata(url);
 
     function displaydata(data) {
+      productcon.innerText = "";
       data.forEach((element) => {
         let divou = document.createElement("div");
         let image = document.createElement("img");
@@ -522,6 +437,12 @@
         let p2 = document.createElement("p");
         p2.innerText = `Rs${element.price}`;
 
+        // let ratingdiv = document.createElement("div");
+        // for(let i=0;i<element.rating;i++){
+        //   let star = document.createElement("i");
+        //   star.classList.add("fas fa-star");
+        //   ratingdiv.append(star);
+        // }
         let p3 = document.createElement("p");
         p3.innerText = element.rating;
 
@@ -547,5 +468,62 @@
     carticon.addEventListener("click", function () {
       window.location.href = "cart.html";
     });
+
+    document
+      .getElementById("search_icon")
+      .addEventListener("click", function () {
+        // alert("hello")
+        let inptext = document.querySelector(
+          ".up_nav > div:nth-child(3) > input"
+        ).value;
+
+        if (inptext.length > 2) {
+          let searchdata = alldata.filter((ele) => {
+            if (ele.name.toLowerCase().includes(inptext.toLowerCase())) {
+              return true;
+            }
+          });
+          if (searchdata.length > 0) {
+            displaydata(searchdata);
+          } else {
+            alert("Not Available! Sorry");
+          }
+        } else {
+          alert("input should be more than 2 character");
+        }
+
+        console.log(inptext.length);
+      });
+
+    document
+      .querySelector(".nav> h3:nth-child(1)")
+      .addEventListener("click", function () {
+        window.location.href = "product2.html";
+      });
+
+    document
+      .querySelector(".nav> h3:nth-child(2)")
+      .addEventListener("click", function () {
+        window.location.href = "underprocess/rooms.html";
+      });
+
+    document
+      .querySelector(".nav> h3:nth-child(3)")
+      .addEventListener("click", function () {
+        window.location.href = "underprocess/newbluewood.html";
+      });
+
+    document
+      .querySelector(".nav> h3:nth-child(4)")
+      .addEventListener("click", function () {
+        window.location.href = "underprocess/offers.html";
+      });
+
+
+      let priceele = document.getElementById("price");
+
+      priceele.addEventListener("change",function(){
+        
+      })
   </script>
 </html>

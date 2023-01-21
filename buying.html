@@ -20,6 +20,12 @@
       margin: 0;
       box-sizing: border-box;
     }
+    .heading_text{
+      padding: 10px;
+      /* color: white; */
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
     .nav {
       display: flex;
       background-color: blue;
@@ -52,7 +58,7 @@
     }
 
     .container > div{
-        background-color: lightsteelblue;
+        background-color: #f2f2f2;
      
       align-items: center;
       margin-bottom: 2px;
@@ -60,7 +66,7 @@
     }
 
     .container > div>div:nth-child(1) {
-      background-color: lightsteelblue;
+      background-color: #f2f2f2;
       display: flex;
       align-items: center;
     
@@ -104,7 +110,7 @@
     }
 
     body {
-      background: linear-gradient(to right, #3a7bd5, #3a6073);
+      /* background: linear-gradient(to right, #3a7bd5, #3a6073); */
       height: 100vh;
     }
   </style>
@@ -114,6 +120,7 @@
       <img src="./images/ikealogo.png" alt="" />
     </div>
 
+    <h1 class="heading_text">ADD PAYMENT DETAILS AND THEN CONTINUE...</h1>
     <div class="container">
       <div>
         <div>
@@ -156,7 +163,9 @@
     let container = document.querySelector(".container div");
 
     checked.addEventListener("change", function () {
+      
       let divin = document.createElement("div");
+      
       let label = document.createElement("label");
       label.innerText = "Link Your Number";
 
