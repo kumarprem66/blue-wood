@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .nav {
+      display: flex;
+      background-color: blue;
+      height: 70px;
+      align-items: center;
+    }
+    .nav > img {
+      margin-left: 15px;
+      width: 100px;
+    }
+
+    .heading_text{
+      padding: 10px;
+      /* color: white; */
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    #gotohome {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      margin-left: 13%;
+    }
+    .container {
+      width: 60%;
+
+      margin: auto;
+    }
+    .container > div:nth-child(1) > p {
+      font-size: 20px;
+      color: blue;
+    }
+    .container > div:nth-child(2) > p {
+      font-size: 20px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+    .container > div {
+      background-color: #f2f2f2;
+      display: flex;
+      align-items: center;
+      margin-bottom: 2px;
+      padding: 20px;
+    }
+    .container > div > p {
+      margin-left: 10px;
+    }
+    #continue {
+      position: absolute;
+      bottom: 50px;
+      right: 100px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+    }
+
+    #add_address {
+      cursor: pointer;
+    }
+
+    body {
+      /* background: linear-gradient(to right, #3a7bd5, #3a6073); */
+      height: 100vh;
+    }
+
+    .popup {
+      position: absolute;
+      top: -150%;
+      left: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.25);
+      width: 500px;
+      padding: 20px 30px;
+      background: #fff;
+      box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
+    }
+
+    .popup.active {
+      top: 50%;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
+    }
+
+    .popup .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background: #888;
+      color: #eee;
+      text-align: center;
+      line-height: 20px;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+
+    .popup .form h2 {
+      text-align: center;
+      color: #222;
+      margin: 10px 0px 20px;
+    }
+
+    .popup .form .form-element {
+      margin: 15px 0px;
+    }
+
+    .popup .form .form-element label {
+      font-size: 14px;
+      color: #222;
+    }
+    .popup .form .form-element input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      outline: none;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+
+    .popup .form .form-element input[type="submit"] {
+      width: 100%;
+      height: 40px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      background: #222;
+      color: #f5f5f5;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="nav">
+      <a id="gotohome" href="index.html">Home</a>
+      <img src="./images/ikealogo.png" alt="" />
+    </div>
+
+    <h1 class="heading_text">Please Add Delivery Details And Then Continue...</h1>
+    <div class="container">
+      <div>
+        <p>DELIVERY ADDRESS</p>
+      </div>
+      <div>
+        <i class="fa-solid fa-plus" id="add_address"></i>
+        <p>Add Delivery Address</p>
+      </div>
+    </div>
+
+    <div class="popup">
+      <div class="close-btn">&times;</div>
+      <div class="form">
+        <h2>Address</h2>
+
+        <div class="form-element">
+          <label for="name">Name</label>
+          <input type="text" id="name" required />
+        </div>
+
+        <div class="form-element">
+          <label for="name">Enter Mobile Number</label>
+          <input type="number" id="mobile" required />
+        </div>
+        <div class="form-element">
+          <label for="name">Pincode</label>
+          <input type="number" id="pincode" required />
+        </div>
+        <div class="form-element">
+          <label for="name">Address</label>
+          <input type="text" id="address" required />
+        </div>
+        <div class="form-element">
+          <label for="name">City/District/Town</label>
+          <input type="text" id="city" required />
+        </div>
+        <div class="form-element">
+          <label for="name">State</label>
+          <input type="text" id="state" required />
+        </div>
+
+        <div class="form-element">
+          <input type="submit" id="address_submit" />
+        </div>
+      </div>
+    </div>
+
+    <button id="continue">Continue</button>
+  </body>
+
+  <script>
+    let address = document.getElementById("add_address");
+
+    let parent = document.querySelector(".container");
+
+    let addressarr = JSON.parse(localStorage.getItem("user_address")) || [];
+
+    displayAddress(addressarr);
+
+    address.addEventListener("click", function () {
+      document.querySelector(".popup").classList.add("active");
+    });
+
+    document
+      .querySelector(".popup .close-btn")
+      .addEventListener("click", function () {
+        document.querySelector(".popup").classList.remove("active");
+      });
+
+    document
+      .getElementById("address_submit")
+      .addEventListener("click", function () {
+        let addobj = {
+          name: document.getElementById("name").value,
+          mobile: document.getElementById("mobile").value,
+          pincode: document.getElementById("pincode").value,
+          address: document.getElementById("address").value,
+          city: document.getElementById("city").value,
+          state: document.getElementById("state").value,
+        };
+
+        if (
+          addobj.name == "" ||
+          addobj.mobile == "" ||
+          addobj.pincode == "" ||
+          addobj.address == "" ||
+          addobj.city == "" ||
+          addobj.state == ""
+        ) {
+          alert("Every field is important");
+        } else {
+          addressarr.push(addobj);
+          localStorage.setItem("user_address", JSON.stringify(addressarr));
+          document.querySelector(".popup").classList.remove("active");
+          window.location.reload();
+        }
+      });
+
+    function displayAddress(arr) {
+      arr.forEach((element) => {
+        let divadd = document.createElement("div");
+        let det = document.createElement("p");
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "radio";
+        checkbox.name = "addre"
+
+        det.innerText =
+          element.name +
+          ", " +
+          element.mobile +
+          ", " +
+          element.pincode +
+          ", " +
+          element.address +
+          ", " +
+          element.city +
+          ", " +
+          element.state;
+        divadd.append(checkbox, det);
+
+        parent.append(divadd);
+      });
+    }
+
+    document.getElementById("continue").addEventListener("click", function () {
+      window.location.href = "buying.html";
+    });
+  </script>
+</html>
