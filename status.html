@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Page</title>
+</head>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+    * {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* body{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    } */
+
+    .container{
+        width: 80%;
+        margin: auto;
+        padding: 10px;
+        background: blue;
+        display: grid;
+        /* gap: 20px; */
+        border-radius: 20px;
+        grid-template-columns: 20% 20% 15% 20% 15% 7%;
+        align-items: center;
+        margin-bottom: 30px;
+        
+    }
+    h2,h3{
+        color: white;
+    }
+
+    h1{
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    /* .container>div{
+        display: flex;
+    } */
+    .container >div:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+       
+    }
+    .container >div:nth-child(1)>div:nth-child(1){
+        /* width: 200px;
+        height: 200px; */
+        height: 200px;
+        border-radius: 10px;
+        /* border: 1px solid red; */
+    }
+
+    .container >div:nth-child(1)>div>img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .container>div:nth-child(3){
+        background: green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .container>div:nth-child(2){
+        /* background: green; */
+        display: flex;
+        align-items: center;
+        border: 2px solid green;
+        height: 10px;
+        justify-content: center;
+       
+
+    }
+
+    .container>div:nth-child(4){
+        /* background: green; */
+        display: flex;
+        align-items: center;
+        height: 10px;
+        justify-content: center;
+        border: 2px solid green;
+       
+    }
+
+    .container>div:nth-child(5){
+        background: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .container>button{
+        cursor: pointer;
+        padding: 5px 10px;
+        margin-left: 10px;
+        
+    }
+
+    .nav {
+      display: flex;
+      background-color: blue;
+      height: 70px;
+      align-items: center;
+    }
+    .nav > img {
+      margin-left: 15px;
+      width: 100px;
+    }
+
+    #logo{
+        cursor: pointer;
+    }
+</style>
+<body>
+
+    <div class="nav">
+        <!-- <a id="gotohome" href="index.html">Home</a> -->
+        <img src="./images/ikealogo.png" alt="" id="logo" />
+    </div>
+
+    <h1>Your Order Status</h1>
+    
+   <div id="parent">
+    <!-- <div class="container">
+        <div>
+             <div class="image">
+ 
+                 <img src="./images/apna7.jpg" alt="" id="itemimage">
+             </div>
+             <div>
+                 <h2 id="itemname">NAME</h2>
+                 <h3 id="itemprice">Price</h3>
+             </div>
+        </div>
+ 
+        <div>
+             
+        </div>
+ 
+         <div>
+             <h3>Confirm</h3>
+         </div>
+ 
+         <div>
+             
+         </div>
+ 
+         <div>
+             <h3>Delivery date 12-02 2023</h3>
+         </div>
+
+         <button>Cancel</button>
+         
+     </div>
+ 
+     <div class="container">
+         <div>
+              <div class="image">
+  
+                  <img src="./images/apna7.jpg" alt="" id="itemimage">
+              </div>
+              <div>
+                  <h2 id="itemname">NAME</h2>
+                  <h3 id="itemprice">Price</h3>
+              </div>
+         </div>
+         
+         <div>
+              
+         </div>
+  
+          <div>
+              <h3>Confirm</h3>
+          </div>
+  
+          <div>
+              
+          </div>
+  
+          <div>
+              <h3>Delivery date 12-02 2023</h3>
+          </div>
+      </div> -->
+   </div>
+
+</body>
+
+
+<script>
+    let buyitem = JSON.parse(localStorage.getItem("buy_item")) || [];
+
+    let parent = document.getElementById("parent");
+    // document.getElementById("itemimage").src = buyitem.img;
+    // document.getElementById("itemname").innerText = buyitem.name;
+    // document.getElementById("itemprice").innerText = "Rs. " +buyitem.price;
+
+    // console.log(buyitem)
+
+    document.getElementById("logo").addEventListener("click",function(){
+      window.location.href = "index.html";
+    })
+
+    displayproduct(buyitem);
+
+    function displayproduct(data){
+        parent.innerText = "";
+        data.forEach(element => {
+            
+            let container = document.createElement("div");
+            container.classList.add("container");
+
+            let div1 = document.createElement("div");
+
+            let divimage = document.createElement("div");
+            let image = document.createElement("img")
+            image.src = element.img;
+            divimage.append(image);
+
+            let divdes = document.createElement("div");
+            let name = document.createElement("h2");
+            name.innerText = element.name;
+            let price = document.createElement("h3")
+            price.innerText = element.price;
+            divdes.append(name,price);
+
+            div1.append(divimage,divdes);
+
+            let div2 = document.createElement("div");
+            let div3 = document.createElement("div");
+            let h3 = document.createElement("h3")
+            h3.innerText = "Confirm";
+            div3.append(h3);
+            let div4 = document.createElement("div");
+            let div5 = document.createElement("div");
+            let date = document.createElement("h3");
+            date.innerText = "Delivery date 23-01 2023"
+            div5.append(date);
+
+            let cancelbtn = document.createElement("button");
+            cancelbtn.innerText = "Cancel";
+
+
+            cancelbtn.addEventListener("click", function () {
+            buyitem = buyitem.filter((ele) => {
+                if (ele.id != element.id) {
+                return true;
+                }
+            });
+
+            localStorage.setItem("buy_item", JSON.stringify(buyitem));
+            displayproduct(buyitem);
+            });
+
+
+
+
+
+            container.append(div1,div2,div3,div4,div5,cancelbtn);
+
+            parent.append(container);
+
+
+        });
+    }
+
+</script>
+</html>

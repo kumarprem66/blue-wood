@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login Page</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
   </head>
   <style>
+     @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
     * {
+      font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -102,7 +104,7 @@
       <div>
         <div>
           <span class="material-icons"> arrow_forward </span>
-          <img src="./ikealogo.png" alt="" />
+          <img src="./images/ikealogo.png" alt="" />
         </div>
 
         <div>
@@ -153,6 +155,9 @@
 
     let userdata = JSON.parse(localStorage.getItem("userdata")) || [];
 
+    let addressvalue = location.search.substring(1);
+    // console.log(addressvalue);
+
     formele.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -166,13 +171,24 @@
           password.value === element.password
         ) {
           temp = 1;
+           
+          localStorage.setItem("current_login_name",element.name);
+          localStorage.setItem("current_login_email",email.value);
+          localStorage.setItem("current_login_pass",password.value);
+
           alert("signup successful");
-          return (window.location.href = "mainpage2.html");
+
+          if(addressvalue=="cart"){
+            return (window.location.href = "cart.html");
+          }else{
+            return (window.location.href = "mainpage2.html");
+          }
+
         }
       });
 
       if (temp == 0) {
-        return alert("Wrong email and password");
+        return alert("Wrong email and password or not registered.");
       }
     });
   </script>

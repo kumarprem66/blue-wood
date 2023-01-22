@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>Main Page</title>
   </head>
   <style>
 
@@ -100,7 +100,7 @@
 
     .nav > h3:hover{
       color: blue;
-      
+
     }
     /* =======================  main  ================== */
     #main_cont {
@@ -299,8 +299,39 @@
       border: none;
       border-radius: 10px;
     }
+    #cart_item_count{
+      margin-left: -20px;
+      color: blue;
+      font-size: 20px;
+    }
 
+    #logo{
+      cursor: pointer;
+    }
 
+    .logout_div{
+
+      position: relative;
+
+      }
+
+      .logout_text{
+      color: red;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 600;
+      position: absolute;
+      right: 10px;
+      top: 1px;
+      }
+
+      #cart_btn {
+      cursor: pointer;
+    }
+
+    #order_status{
+      cursor: pointer;
+    }
 
   </style>
   <body>
@@ -314,7 +345,7 @@
       </div>
 
       <div>
-        <img src="./images/ikealogo.png" alt="" />
+        <img src="./images/ikealogo.png" alt="" id="logo" />
       </div>
 
       <div>
@@ -324,12 +355,14 @@
       </div>
 
       <div>
-        <div>
+        <div class="logout_div">
           <span class="material-icons"> person </span>
-          <h3>Hey! Log in or sign up</h3>
+          <h3 id="user_name_display">Hey! Log in or sign up</h3>
+          <span class="logout_text"></span>
         </div>
-        <i class="fa-solid fa-van-shuttle"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-van-shuttle" id="order_status"></i>
+        <i class="fa-solid fa-cart-shopping" id="cart_btn"></i>
+        <span id="cart_item_count">0</span>
       </div>
     </div>
 
@@ -766,24 +799,25 @@
       // alert("hello")
       let inptext = document.querySelector(".up_nav > div:nth-child(3) > input").value;
 
-
-      
-      
       if(inptext.length>2){
           let searchdata = alldata.filter((ele)=>{
           if(ele.name.toLowerCase().includes(inptext.toLowerCase())){
+            return true;
+          }else if(ele.desc.toLowerCase().includes(inptext.toLowerCase())){
             return true;
           }
         })
         if(searchdata.length>0){
 
-          localStorage.setItem("searchitem",JSON.stringify(searchdata));
+          // localStorage.setItem("searchitem",JSON.stringify(searchdata));
+          alert("Yeh! Your item is available...");
+          
           window.location.href = "product2.html";
 
           
 
         }else{
-          alert("Not Available! Sorry")
+          alert("Not Available! Sorry");
         }
 
       }else{
@@ -823,6 +857,47 @@
     })
 
 
+    let localdata = JSON.parse(localStorage.getItem("cart_item")) || [];
+
+    let user_name = localStorage.getItem("current_login_name");
+    let logoutDiv = document.querySelector(".logout_div");
+
+    document.getElementById("order_status").addEventListener("click",function(){
+      window.location.href = "status.html";
+    })
+
+    document.getElementById("logo").addEventListener("click",function(){
+      window.location.href = "index.html";
+    })
+
+    if(user_name !=null){
+      document.getElementById("user_name_display").innerText = `Hello! ${user_name}`;
+      let logout = document.querySelector(".logout_text");
+      logout.innerText = "Logout";
+      logoutDiv.append(logout);
+    }
+
+    document.getElementById("cart_item_count").innerText = localdata.length;
+
+    let carticon = document.getElementById("cart_btn");
+    carticon.addEventListener("click", function () {
+      window.location.href = "cart.html";
+    });
+
+
+
+
+    document.querySelector(".logout_text").addEventListener("click",function(){
+      alert("Do You want to Logout");
+
+      localStorage.removeItem("current_login_email");
+      localStorage.removeItem("current_login_name");
+      localStorage.removeItem("current_login_pass");
+
+      window.location.reload();
+
+
+    });
   </script>
  
 </html>
