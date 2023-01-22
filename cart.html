@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Cart Page</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -19,7 +19,9 @@
     />
   </head>
   <style>
+     @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
     * {
+      font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -73,6 +75,20 @@
       padding: 10px;
     }
 
+    .logout_div {
+      position: relative;
+    }
+
+    .logout_text {
+      color: red;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 600;
+      position: absolute;
+      right: 10px;
+      top: 1px;
+    }
+
     .up_nav > div:nth-child(4) {
       display: flex;
       justify-content: space-around;
@@ -84,9 +100,18 @@
       padding: 10px;
       margin-right: 10px;
     }
+
     .nav > h3 {
       margin-right: 20px;
       font-size: 17px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .nav > h3:nth-child(1) {
+      color: blue;
+    }
+    .nav > h3:hover {
+      color: blue;
     }
 
     #main_cont {
@@ -113,9 +138,17 @@
 
     .product_con > div {
       border: 0.5px solid darkgray;
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .product_con > div:hover {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      transform: scale(1.1);
     }
     .product_con > div > img {
       width: 100%;
+      border-radius: 10px 10px 0 0;
     }
     .product_con > div > div {
       padding-top: 30px;
@@ -124,12 +157,40 @@
       flex-direction: column;
     }
 
+    .quantity_change_div {
+      margin: 10px 0;
+    }
+
+    .quantity_change_div > button {
+      padding: 2px 5px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .quantity_change_div > span {
+      margin-right: 5px;
+    }
+
+    .quantity_change_div > button:nth-child(4) {
+      background: red;
+      outline: none;
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+      color: white;
+      font-size: 15px;
+    }
+
     .product_con > div > div > button {
       display: block;
       border-radius: 20px;
       padding: 10px;
       margin-bottom: 10px;
       margin-right: 10px;
+      cursor: pointer;
+      background: blue;
+      outline: none;
+      border: none;
+      color: white;
     }
 
     .bottom {
@@ -173,7 +234,7 @@
     .bottom_privacy {
       display: grid;
       grid-template-columns: 10% 90%;
-      margin-bottom: 50px;
+      margin-bottom: 0px;
     }
     .bottom_privacy > div:nth-child(1) {
       width: 100%;
@@ -200,6 +261,20 @@
     .bottom_privacy > div:nth-child(2) > div > span {
       margin-right: 10px;
     }
+
+    #cart_item_count {
+      margin-left: -20px;
+      color: blue;
+      font-size: 20px;
+    }
+
+    #cart_btn {
+      cursor: pointer;
+    }
+
+    #order_status{
+      cursor: pointer;
+    }
   </style>
   <body>
     <div class="offer_pop">
@@ -222,12 +297,14 @@
       </div>
 
       <div>
-        <div>
+        <div class="logout_div">
           <span class="material-icons"> person </span>
-          <h3>Hey! Log in or sign up</h3>
+          <h3 id="user_name_display">Hey! Log in or sign up</h3>
+          <span class="logout_text"></span>
         </div>
-        <i class="fa-solid fa-cart-flatbed-boxes"></i>
-        <i class="fa-solid fa-truck-container"></i>
+        <i class="fa-solid fa-van-shuttle" id="order_status"></i>
+        <i class="fa-solid fa-cart-shopping" id="cart_btn"></i>
+        <span id="cart_item_count">0</span>
       </div>
     </div>
 
@@ -245,102 +322,100 @@
       </div>
 
       <div class="product_con"></div>
+    </div>
 
-      <div class="bottom">
+    <div class="bottom">
+      <div>
         <div>
-          <div>
-            <h4>Join IKEA Family</h4>
-            <p>
-              Enjoy guaranteed discounts, special previews, food offers and much
-              more. Sign up today - it’s free and only takes a minute to join.
-            </p>
+          <h4>Join IKEA Family</h4>
+          <p>
+            Enjoy guaranteed discounts, special previews, food offers and much
+            more. Sign up today - it’s free and only takes a minute to join.
+          </p>
 
-            <button>Join the club</button>
-          </div>
-          <div>
-            <h4>IKEA for Business</h4>
-            <p>
-              Our business & design experts help you with flexible,affordable
-              and sustainabe solutions. Create a better life at work with us
-            </p>
-            <button>Join now</button>
-          </div>
-        </div>
-
-        <div>
-          <h4>BLUE-WOOD Family</h4>
-          <p>Log in</p>
-          <p>Join BLUE-WOOD Family</p>
-          <p>Members offers</p>
-          <p>Workshops & Events</p>
-        </div>
-
-        <div>
-          <h4>Services</h4>
-          <p>Design your room</p>
-          <p>Delivery Service</p>
-          <p>Installation Service</p>
-          <p>Assembly Service</p>
-          <p>Kitchen Planning</p>
-          <p>Measuring Servies</p>
-          <p>Customer Services</p>
-          <p>Recylcle Program</p>
-          <p>Track Your Order</p>
-          <p>Click & collect</p>
-        </div>
-
-        <div>
-          <h4>Help</h4>
-          <p>How to shop</p>
-          <p>Return policy</p>
-          <p>Prices and price tags</p>
-          <p>Contact us</p>
-          <p>FAQ's</p>
-          <p>Planners</p>
-          <p>Size guide- Beds & mattresses</p>
-          <p>Buying guides</p>
-          <p>Gift Card</p>
-          <p>Feedback</p>
+          <button>Join the club</button>
         </div>
         <div>
-          <h4>About BLUE-WOOD</h4>
-          <p>This is BLUE-WOOD</p>
-          <p>Working at WOOD</p>
-          <p>Newsroom</p>
-          <p>Sustainabily</p>
-          <p>IKEA Stores</p>
-          <p>IKEA Restaurant</p>
-          <p>IKEA for Business</p>
+          <h4>IKEA for Business</h4>
+          <p>
+            Our business & design experts help you with flexible,affordable and
+            sustainabe solutions. Create a better life at work with us
+          </p>
+          <button>Join now</button>
         </div>
       </div>
 
-      <div class="social_link">
-        <div>
-          <i class="fa-brands fa-square-youtube"></i>
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-instagram"></i>
-        </div>
-        <div>
-          <div>
-            <span class="material-icons"> language </span>Change country
-          </div>
-        </div>
+      <div>
+        <h4>BLUE-WOOD Family</h4>
+        <p>Log in</p>
+        <p>Join BLUE-WOOD Family</p>
+        <p>Members offers</p>
+        <p>Workshops & Events</p>
       </div>
 
-      <div class="bottom_privacy">
-        <div>
-          <i class="fa-solid fa-arrow-up"></i>
-        </div>
+      <div>
+        <h4>Services</h4>
+        <p>Design your room</p>
+        <p>Delivery Service</p>
+        <p>Installation Service</p>
+        <p>Assembly Service</p>
+        <p>Kitchen Planning</p>
+        <p>Measuring Servies</p>
+        <p>Customer Services</p>
+        <p>Recylcle Program</p>
+        <p>Track Your Order</p>
+        <p>Click & collect</p>
+      </div>
 
+      <div>
+        <h4>Help</h4>
+        <p>How to shop</p>
+        <p>Return policy</p>
+        <p>Prices and price tags</p>
+        <p>Contact us</p>
+        <p>FAQ's</p>
+        <p>Planners</p>
+        <p>Size guide- Beds & mattresses</p>
+        <p>Buying guides</p>
+        <p>Gift Card</p>
+        <p>Feedback</p>
+      </div>
+      <div>
+        <h4>About BLUE-WOOD</h4>
+        <p>This is BLUE-WOOD</p>
+        <p>Working at WOOD</p>
+        <p>Newsroom</p>
+        <p>Sustainabily</p>
+        <p>IKEA Stores</p>
+        <p>IKEA Restaurant</p>
+        <p>IKEA for Business</p>
+      </div>
+    </div>
+
+    <div class="social_link">
+      <div>
+        <i class="fa-brands fa-square-youtube"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+      <div>
+        <div><span class="material-icons"> language </span>Change country</div>
+      </div>
+    </div>
+
+    <div class="bottom_privacy">
+      <div>
+        <i class="fa-solid fa-arrow-up"></i>
+      </div>
+
+      <div>
+        <p>© Inter IKEA Systems B.V. 2000-2023</p>
         <div>
-          <p>© Inter IKEA Systems B.V. 2000-2023</p>
-          <div>
-            <span>Privacy policy</span>
-            <span>Cookie policy</span>
-            <span>Cookie settings</span>
-            <span>Terms and Condition</span>
-          </div>
+          <span>Privacy policy</span>
+          <span>Cookie policy</span>
+          <span>Cookie settings</span>
+          <span>Terms and Condition</span>
         </div>
       </div>
     </div>
@@ -353,13 +428,33 @@
 
     let localdata = JSON.parse(localStorage.getItem("cart_item")) || [];
 
+    let buy = JSON.parse(localStorage.getItem("buy_item")) || [];
+
+    document.getElementById("order_status").addEventListener("click",function(){
+      window.location.href = "status.html";
+    })
+
     let sum = 0;
+
+    let user_name = localStorage.getItem("current_login_name");
+    let logoutDiv = document.querySelector(".logout_div");
+
+    if (user_name != null) {
+      document.getElementById(
+        "user_name_display"
+      ).innerText = `Hello! ${user_name}`;
+      let logout = document.querySelector(".logout_text");
+      logout.innerText = "Logout";
+      logoutDiv.append(logout);
+    }
+
+    document.getElementById("cart_item_count").innerText = localdata.length;
 
     displaydata(localdata);
 
     function displaydata(localdata) {
+      productcon.innerText = "";
       localdata.forEach((element) => {
-        sum += element.price;
         let divou = document.createElement("div");
         let image = document.createElement("img");
         image.src = element.img;
@@ -371,28 +466,123 @@
         p1.innerText = element.desc;
 
         let p2 = document.createElement("p");
-        p2.innerText = `Rs${element.price}`;
+        p2.innerText = `Rs. ${element.price}`;
 
         let p3 = document.createElement("p");
-        p3.innerText = element.rating;
+        p3.innerText = "Rating - "+element.rating;
 
         // let like = document.createElement("i");
         // like.innerText = "🤍";
+
+        let btn_div = document.createElement("div");
+        btn_div.classList.add("quantity_change_div");
+
+        let add = document.createElement("button");
+        add.innerText = "+";
+
+        let quan = document.createElement("span");
+        quan.innerText = `Rs. ${element.quantity}`;
+
+        let dec = document.createElement("button");
+        dec.innerText = "-";
+
+        let remove = document.createElement("button");
+        remove.innerText = "Remove";
+
+        btn_div.append(add, quan, dec, remove);
+
+        add.addEventListener("click", function () {
+          element.quantity++;
+          localStorage.setItem("cart_item", JSON.stringify(localdata));
+          displaydata(localdata);
+        });
+
+        dec.addEventListener("click", function () {
+          if (element.quantity > 1) {
+            element.quantity--;
+            localStorage.setItem("cart_item", JSON.stringify(localdata));
+            displaydata(localdata);
+          }
+        });
+
+        remove.addEventListener("click", function () {
+          localdata = localdata.filter((ele) => {
+            if (ele.id != element.id) {
+              return true;
+            }
+          });
+
+          localStorage.setItem("cart_item", JSON.stringify(localdata));
+          displaydata(localdata);
+        });
 
         let buy_now = document.createElement("button");
         buy_now.innerText = "Buy Now";
 
         buy_now.addEventListener("click", function () {
-          localStorage.setItem("buy_item", JSON.stringify(element));
-          window.location.href = "address.html";
+          let emailcurr = localStorage.getItem("current_login_email");
+          let passcurr = localStorage.getItem("current_login_pass");
+
+          if (emailcurr == null && passcurr == null) {
+            alert("You have to login first to purchase any product.");
+            window.location.href = "login.html" + "?cart";
+          } else {
+            buy.push(element);
+            localStorage.setItem("buy_item", JSON.stringify(buy));
+            // let totalprice = element.price * element.quantity;
+            window.location.href = "address.html" + "?" + element.id;
+          }
         });
 
-        pricele.innerText = `₹${sum}`;
-        divin.append(h2, p1, p2, p3, buy_now);
+        divin.append(h2, p1, p2, p3, btn_div, buy_now);
 
         divou.append(image, divin);
         productcon.append(divou);
       });
+
+      sum = 0;
+
+      for (let i = 0; i < localdata.length; i++) {
+        sum += localdata[i].price * localdata[i].quantity;
+      }
+
+      pricele.innerText = `₹${sum}`;
     }
+
+    document
+      .querySelector(".nav> h3:nth-child(1)")
+      .addEventListener("click", function () {
+        window.location.href = "product2.html";
+      });
+
+    document
+      .querySelector(".nav> h3:nth-child(2)")
+      .addEventListener("click", function () {
+        window.location.href = "underprocess/rooms.html";
+      });
+
+    document
+      .querySelector(".nav> h3:nth-child(3)")
+      .addEventListener("click", function () {
+        window.location.href = "underprocess/newbluewood.html";
+      });
+
+    document
+      .querySelector(".nav> h3:nth-child(4)")
+      .addEventListener("click", function () {
+        window.location.href = "underprocess/offers.html";
+      });
+
+    document
+      .querySelector(".logout_text")
+      .addEventListener("click", function () {
+        alert("Do You want to Logout");
+
+        localStorage.removeItem("current_login_email");
+        localStorage.removeItem("current_login_name");
+        localStorage.removeItem("current_login_pass");
+
+        window.location.reload();
+      });
   </script>
 </html>

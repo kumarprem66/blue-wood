@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .header{
+        width: 100%;
+        height: 100vh;
+        /* background-image: url(../images/apna7.jpg); */
+        background: blueviolet;
+        /* background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; */
+    }
+
+    nav{
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+
+
+    }
+
+    .logo{
+        width: 150px;
+        margin: 20px 0;
+    }
+
+    nav ul{
+        background: #000;
+        width: 100%;
+        margin-top: 10px;
+    }
+    nav ul li{
+        display: inline-block;
+        list-style: none;
+        margin: 20px 30px;
+        color: #fff;
+    }
+
+    .sticky{
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 8px 8%;
+        display: flex;
+        background: #000;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav.sticky ul{
+        /* border: 1px solid red; */
+        width: auto;
+    }
+
+
+</style>
+<body>
+    
+    <div class="header">
+        <nav id="navbar">
+            <img src="../images/ikealogo.png" alt="" class="logo">
+            <ul id="menu">
+                <li>HOME</li>
+                <li>ABOUT</li>
+                <li>SERVICES</li>
+                <li>PRODUCT</li>
+                <li>CONTACT</li>
+            </ul>
+        </nav>
+    </div>
+
+    <p class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, consequatur commodi quibusdam numquam, perferendis veritatis odit totam quaerat quod impedit adipisci dolores autem hic, optio doloremque ad pariatur aspernatur aliquid facilis maxime sunt natus. Tempora cumque odio corporis vitae autem molestiae repellat officiis sit fugit dignissimos nisi placeat maiores unde debitis eius, ut, magnam inventore assumenda dolorem? Ipsum expedita quas deserunt impedit voluptatibus laudantium nostrum quasi autem harum laborum, eveniet ipsa inventore, dolor aperiam modi recusandae saepe sit possimus perspiciatis nihil, quae qui temporibus deleniti? Reprehenderit, eaque vitae earum nobis est, tempore aliquid aut voluptate unde rem ea dolorem impedit quo minus corrupti accusamus. Eveniet dignissimos repellendus iste esse, omnis officia quisquam reiciendis accusamus, incidunt fugiat ipsam! Vel quo perferendis accusamus, cum harum non repellat soluta nihil eligendi impedit quaerat magnam id neque enim asperiores totam quas exercitationem est provident reprehenderit repudiandae! Sit necessitatibus consequuntur dolorum totam obcaecati nesciunt, tempora perferendis aliquid quaerat magni expedita doloremque architecto sapiente dolor quia recusandae sint itaque. Laudantium tempore suscipit veritatis corporis in similique reprehenderit tenetur et modi. Autem sit ipsum officia. Quam vel provident reiciendis possimus praesentium exercitationem eum enim consequuntur quia assumenda incidunt id molestias labore dicta veritatis, numquam maxime voluptatem delectus voluptates aspernatur accusantium. Nobis eum quidem, optio provident explicabo fugiat, numquam voluptas quibusdam, impedit minima error ipsum dolorem. Laudantium minus possimus, ut voluptate nulla sequi corrupti iure sint ipsa incidunt esse facere earum, fugit enim eveniet, ducimus id dolores mollitia assumenda harum. Nihil nam placeat magni cum quae voluptas, et voluptatum, reprehenderit aut excepturi ab asperiores amet sapiente dolor saepe debitis quisquam facere assumenda illo eveniet corporis accusantium? Nobis sed molestiae praesentium laboriosam inventore beatae obcaecati aspernatur libero dignissimos deleniti, fugiat, dolores nihil vitae a dolorem asperiores quam? Reiciendis natus vero cum adipisci aliquam, autem perspiciatis libero pariatur suscipit odio deserunt quasi iusto accusantium. Porro et maxime doloremque voluptatibus, aspernatur rem odio soluta voluptatum qui culpa, laboriosam ipsa placeat. Natus iste culpa voluptates nobis, sit eaque illum. Aliquid repudiandae voluptate, nemo maiores libero modi, laudantium atque iste assumenda voluptates nobis illum non necessitatibus totam autem tenetur ea cumque quas? Cum doloribus beatae fuga saepe vel rem aperiam? Optio tempore cum temporibus maiores quam ex ratione dolorum tenetur vero? Odit eum esse incidunt consequatur quos reprehenderit aliquid corporis fugit, nam, nobis minus ducimus. Expedita nisi voluptas tempore veritatis eum, consequuntur, fugiat atque temporibus minima tempora ipsa. Pariatur nostrum, voluptatibus itaque ut minima animi! Laboriosam repudiandae temporibus dolorum eum porro similique autem, ea tempora iusto numquam sequi ab laborum exercitationem qui sit non illo cupiditate culpa dolores architecto corporis explicabo eius perspiciatis quis. Voluptatum, omnis dolor explicabo labore repellendus deleniti quae consectetur quaerat quis ipsa nostrum animi vel amet fugiat temporibus vitae consequuntur quos accusamus, placeat nihil culpa. Animi, vitae rerum libero deleniti eius veniam debitis, aliquid blanditiis officia vero quasi provident nulla cumque reiciendis porro quisquam sit quod eaque sapiente doloremque beatae ipsa quas. Nisi quidem voluptate itaque quis amet quia optio nulla sit illo? Quos consequuntur sit aliquam doloremque tempore?</p>
+</body>
+
+<script>
+    let navbar = document.getElementById("navbar");
+    let menu = document.getElementById("menu");
+
+    window.onscroll = function(){
+        if(window.pageYOffset >= menu.offsetTop){
+            navbar.classList.add("sticky");
+        }else{
+            navbar.classList.remove("sticky");
+
+        }
+    }
+
+
+</script>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Product Page</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -19,9 +19,9 @@
     />
   </head>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
     * {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -35,27 +35,27 @@
       padding: 7px;
     }
 
-    .up_nav {
+    header {
       display: grid;
       grid-template-columns: 8% 12% 55% 25%;
       align-items: center;
-
+     
       padding-right: 20px;
       height: 80px;
     }
-    .up_nav > div:nth-child(1) {
+    header> div:nth-child(1) {
       text-align: center;
       /* position: fixed; */
     }
 
-    .up_nav > div:nth-child(2) {
+    header > div:nth-child(2) {
       padding: 20px;
     }
-    .up_nav > div:nth-child(2) > img {
+    header > div:nth-child(2) > img {
       width: 100%;
     }
 
-    .up_nav > div:nth-child(3) {
+    header > div:nth-child(3) {
       background-color: rgb(183, 190, 197);
       border-radius: 30px;
       margin-right: 40px;
@@ -65,7 +65,7 @@
       align-items: center;
     }
 
-    .up_nav > div:nth-child(3) > input {
+    header > div:nth-child(3) > input {
       width: 90%;
       height: 100%;
       font-size: 18px;
@@ -76,18 +76,34 @@
       padding: 10px;
     }
 
-    .up_nav > div:nth-child(4) {
+    header > div:nth-child(4) {
       display: flex;
       justify-content: space-around;
       align-items: center;
     }
 
-    #search_icon{
+    .sticky{
+      width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px 5%;
+        background: #f2f2f2;
+        transition: padding 1s;
+    }
+
+
+
+
+
+
+
+    #search_icon {
       cursor: pointer;
       padding: 10px;
     }
 
-    #cart_btn{
+    #cart_btn {
       cursor: pointer;
     }
     .nav {
@@ -101,13 +117,37 @@
       transition: all 0.3s ease;
       cursor: pointer;
     }
-    .nav >h3:nth-child(1){
+    .nav > h3:nth-child(1) {
       color: blue;
     }
-    .nav >h3:hover{
+    .nav > h3:hover {
       color: blue;
     }
 
+    .logout_div{
+
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    
+
+    }
+
+    .logout_div:hover{
+      background: #dad4d4;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    }
+
+    .logout_text{
+    color: red;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    position: absolute;
+    right: 10px;
+    top: 1px;
+    }
     #main_cont {
       padding-left: 7%;
       padding-right: 20px;
@@ -132,7 +172,14 @@
     .product_con > div {
       border: 0.5px solid darkgray;
       border-radius: 10px;
+      transition: all 0.3s ease-in-out;
     }
+
+    .product_con >div:hover{
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      transform: scale(1.2);
+    }
+
     .product_con > div > img {
       width: 100%;
       border-radius: 10px;
@@ -149,6 +196,7 @@
       border-radius: 20px;
       padding: 10px;
       margin-bottom: 10px;
+      cursor: pointer;
       margin-right: 10px;
     }
 
@@ -193,7 +241,7 @@
     .bottom_privacy {
       display: grid;
       grid-template-columns: 10% 90%;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
     }
     .bottom_privacy > div:nth-child(1) {
       width: 100%;
@@ -220,19 +268,30 @@
     .bottom_privacy > div:nth-child(2) > div > span {
       margin-right: 10px;
     }
+    #cart_item_count{
+      margin-left: -20px;
+      color: blue;
+      font-size: 20px;
+    }
+    #logo{
+      cursor: pointer;
+    }
+    #order_status{
+      cursor: pointer;
+    }
   </style>
   <body>
     <div class="offer_pop">
       <p><i>Get 20% off* on delivery charges-limited period offer!</i></p>
     </div>
-    <div class="up_nav">
+    <header id="navbar">
       <div>
         <span class="material-icons"> menu </span>
         <h3>Menu</h3>
       </div>
 
       <div>
-        <img src="./images/ikealogo.png" alt="" />
+        <img src="./images/ikealogo.png" alt="" id="logo"/>
       </div>
 
       <div>
@@ -242,14 +301,16 @@
       </div>
 
       <div>
-        <div>
+        <div class="logout_div">
           <span class="material-icons"> person </span>
-          <h3>Hey! Log in or sign up</h3>
+          <h3 id="user_name_display">Hey! Log in or sign up</h3>
+          <span class="logout_text"></span>
         </div>
-        <i class="fa-solid fa-van-shuttle" ></i>
+        <i class="fa-solid fa-van-shuttle" id="order_status"></i>
         <i class="fa-solid fa-cart-shopping" id="cart_btn"></i>
+        <span id="cart_item_count">0</span>
       </div>
-    </div>
+    </header>
 
     <div id="main_cont">
       <div class="nav">
@@ -262,8 +323,8 @@
       <div class="sorting">
         <select name="sort" id="sort">
           <option value="">Sort</option>
-          <option value="bm">Best match</option>
-          <option value="new">Newest</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
           <option value="cr">customer Rating</option>
           <option value="Name">Name</option>
           <option value="Most popular">Mp</option>
@@ -275,30 +336,21 @@
         <select id="category" name="category">
           <option value="">Categoty</option>
           <option value="wall shelves">Wall shelves</option>
-          <option value="hooks">Hooks</option>
-          <option value="wall storage">Wall Storage</option>
+          <option value="hook">Hooks</option>
+          <option value="table">Table and Chair</option>
         </select>
 
         <select id="price" name="price">
-          <option value="price">Price</option>
+          <option value="Price">Price</option>
           <option value="first">₹0 - 199</option>
           <option value="second">₹200 - 399</option>
           <option value="third">₹400 - 599</option>
-          <option value="four">₹600 - 799</option>
+          <option value="fourth">₹600 - 799</option>
           <option value="fifth">₹800+</option>
         </select>
       </div>
 
-      <div class="product_con">
-       
-         
-        
-       
-
-        
-      </div>
-
-   
+      <div class="product_con"></div>
     </div>
 
     <div class="bottom">
@@ -315,8 +367,8 @@
         <div>
           <h4>IKEA for Business</h4>
           <p>
-            Our business & design experts help you with flexible,affordable
-            and sustainabe solutions. Create a better life at work with us
+            Our business & design experts help you with flexible,affordable and
+            sustainabe solutions. Create a better life at work with us
           </p>
           <button>Join now</button>
         </div>
@@ -377,9 +429,7 @@
         <i class="fa-brands fa-instagram"></i>
       </div>
       <div>
-        <div>
-          <span class="material-icons"> language </span>Change country
-        </div>
+        <div><span class="material-icons"> language </span>Change country</div>
       </div>
     </div>
 
@@ -401,10 +451,52 @@
   </body>
 
   <script>
+
+let navbar = document.getElementById("navbar");
+
+  window.onscroll = function(){
+              if(window.pageYOffset >= 40){
+                  navbar.classList.add("sticky");
+              }else{
+                  navbar.classList.remove("sticky");
+
+              }
+          }
+
+
+
+
+
+
     let productcon = document.querySelector(".product_con");
 
     let localdata = JSON.parse(localStorage.getItem("cart_item")) || [];
     // let searchdata = JSON.parse(localStorage.getItem("searchitem")) || [];
+
+    let user_name = localStorage.getItem("current_login_name");
+    let logoutDiv = document.querySelector(".logout_div");
+
+    logoutDiv.addEventListener("click",function(){
+      if(user_name==null){
+        window.location.href = "login.html";
+      }
+    })
+
+    document.getElementById("order_status").addEventListener("click",function(){
+      window.location.href = "status.html";
+    })
+
+
+    document.getElementById("logo").addEventListener("click",function(){
+      window.location.href = "index.html";
+    })
+  
+    if(user_name !=null){
+      document.getElementById("user_name_display").innerText = `Hello! ${user_name}`;
+      let logout = document.querySelector(".logout_text");
+      logout.innerText = "Logout";
+      logoutDiv.append(logout);
+    }
 
     let url = "https://63c9170d320a0c4c9540575f.mockapi.io/products";
     let alldata = [];
@@ -435,7 +527,7 @@
         p1.innerText = element.desc;
 
         let p2 = document.createElement("p");
-        p2.innerText = `Rs${element.price}`;
+        p2.innerText = `Rs. ${element.price}`;
 
         // let ratingdiv = document.createElement("div");
         // for(let i=0;i<element.rating;i++){
@@ -444,56 +536,44 @@
         //   ratingdiv.append(star);
         // }
         let p3 = document.createElement("p");
-        p3.innerText = element.rating;
+        p3.innerText = "Rating - "+element.rating;
 
-        let like = document.createElement("i");
-        like.innerText = "🤍";
+        // let like = document.createElement("i");
+        // like.innerText = "🤍";
+        // <i class="fa-sharp fa-solid fa-heart"></i>
 
         let add_to_cart = document.createElement("button");
         add_to_cart.innerText = "Add To Cart";
 
         add_to_cart.addEventListener("click", function () {
-          localdata.push(element);
+
+          if(checkDuplicate(element)){
+            alert("Item is already in the cart");
+          }else{
+            localdata.push({...element,quantity:1});
           localStorage.setItem("cart_item", JSON.stringify(localdata));
+          alert("Successfully placed orfder");
+          }
+          document.getElementById("cart_item_count").innerText = localdata.length;
+
+          
         });
 
-        divin.append(h2, p1, p2, p3, like, add_to_cart);
+        divin.append(h2, p1, p2, p3, add_to_cart);
 
         divou.append(image, divin);
         productcon.append(divou);
       });
     }
 
+    document.getElementById("cart_item_count").innerText = localdata.length;
+
     let carticon = document.getElementById("cart_btn");
     carticon.addEventListener("click", function () {
       window.location.href = "cart.html";
     });
 
-    document
-      .getElementById("search_icon")
-      .addEventListener("click", function () {
-        // alert("hello")
-        let inptext = document.querySelector(
-          ".up_nav > div:nth-child(3) > input"
-        ).value;
-
-        if (inptext.length > 2) {
-          let searchdata = alldata.filter((ele) => {
-            if (ele.name.toLowerCase().includes(inptext.toLowerCase())) {
-              return true;
-            }
-          });
-          if (searchdata.length > 0) {
-            displaydata(searchdata);
-          } else {
-            alert("Not Available! Sorry");
-          }
-        } else {
-          alert("input should be more than 2 character");
-        }
-
-        console.log(inptext.length);
-      });
+   
 
     document
       .querySelector(".nav> h3:nth-child(1)")
@@ -519,11 +599,128 @@
         window.location.href = "underprocess/offers.html";
       });
 
+    let priceele = document.getElementById("price");
 
-      let priceele = document.getElementById("price");
+    priceele.addEventListener("change", function () {
+      let low = 0;
+      let high = 0;
+      if(priceele.value == "Price"){
+          // console.log(alldata);
+        return  displaydata(alldata);
+      }else if (priceele.value == "first") {
+        low = 0;
+        high = 199;
+      } else if (priceele.value == "second") {
+        low = 200;
+        high = 399;
+      } else if (priceele.value == "third") {
+        low = 400;
+        high = 599;
+      } else if (priceele.value == "fourth") {
+        low = 600;
+        high = 799;
+      } else if (priceele.value == "fifth") {
+        low = 800;
+      } 
 
-      priceele.addEventListener("change",function(){
+      let pricefilterdata = alldata.filter((ele) => {
+        if (low === 800) {
+          return ele.price >= low;
+        } else if (ele.price >= low && ele.price <= high) {
+          return true;
+        }
+
+      });
+
+      displaydata(pricefilterdata);
+
+
+    });
+
+
+
+    document
+      .getElementById("search_icon")
+      .addEventListener("click", function () {
         
+        let inptext = document.querySelector(
+          "header > div:nth-child(3) > input"
+        ).value;
+
+        url = `https://63c9170d320a0c4c9540575f.mockapi.io/products?search=${inptext}`;
+        // if (inptext.length > 2) {
+        //   let searchdata = alldata.filter((ele) => {
+        //     if (ele.name.toLowerCase().includes(inptext.toLowerCase())) {
+        //       return true;
+        //     }
+        //   });
+        //   if (searchdata.length > 0) {
+        //     displaydata(searchdata);
+        //   } else {
+        //     alert("Not Available! Sorry");
+        //   }
+        // } else {
+        //   alert("input should be more than 2 character");
+        // }
+
+        // console.log(inptext.length);
+
+        fetchdata(url);
+
+
+      });
+
+      let categoryele = document.getElementById("category");
+
+      categoryele.addEventListener("change",function(){
+        let inptext1 = categoryele.value;
+        url = `https://63c9170d320a0c4c9540575f.mockapi.io/products?search=${inptext1}`;
+        fetchdata(url);
       })
+
+    let sortele = document.getElementById("sort");
+    sortele.addEventListener("change",function(){
+      if(sortele.value=="asc"){
+        url = "https://63c9170d320a0c4c9540575f.mockapi.io/products?sortBy=price&order=asc"
+      }else if(sortele.value=="desc"){
+        url = "https://63c9170d320a0c4c9540575f.mockapi.io/products?sortBy=price&order=desc"
+      }else if(sortele.value=="cr"){
+        url = "https://63c9170d320a0c4c9540575f.mockapi.io/products?sortBy=rating&order=desc"
+
+      }else if(sortele.value=="Name"){
+        url = "https://63c9170d320a0c4c9540575f.mockapi.io/products?sortBy=name&order=asc"
+
+      }
+
+      fetchdata(url);
+
+    })
+
+
+    document.querySelector(".logout_text").addEventListener("click",function(){
+      alert("Do You want to Logout");
+
+      localStorage.removeItem("current_login_email");
+      localStorage.removeItem("current_login_name");
+      localStorage.removeItem("current_login_pass");
+
+      window.location.reload();
+
+
+    });
+
+    function checkDuplicate(product){
+      for(let i=0;i<localdata.length;i++){
+        if(localdata[i].id == product.id){
+          return true;
+        }
+      }
+      return false;
+    }
+
+
+
+   
+    
   </script>
 </html>

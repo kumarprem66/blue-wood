@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Payment Page</title>
 
     <link
       rel="stylesheet"
@@ -15,9 +15,11 @@
     />
   </head>
   <style>
+     @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
     * {
-      padding: 0;
+      font-family: "Poppins", sans-serif;
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
     .heading_text{
@@ -50,7 +52,7 @@
     }
     .container > div:nth-child(1) > div > p {
       font-size: 20px;
-      color: blue;
+      /* color: blue; */
     }
     .container > div:nth-child(2) > div > p {
       font-size: 20px;
@@ -76,10 +78,13 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+     
     }
 
     .container > div > div:nth-child(2) > label {
       padding: 10px;
+      font-weight: 900;
+      color: blue;
     }
 
     .container > div > div:nth-child(2) > input {
@@ -88,10 +93,30 @@
 
     .container > div > div:nth-child(2) > button {
       padding: 10px 20px;
+      outline: none;
+      cursor: pointer;
+      margin-left: 5px;
+      border-radius: 5px;
     }
 
     .container > div > div > input[type="radio"] {
       margin-right: 10px;
+    }
+  
+    .bank_account >div:nth-child(2)>div{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+
+    }
+
+    .bank_account >div:nth-child(2)>div>input{
+      padding: 10px 20px;
+
+    }
+    .bank_account >div:nth-child(2)>button{
+      margin-left: 10px;
+
     }
     #continue {
       position: absolute;
@@ -109,6 +134,11 @@
       cursor: pointer;
     }
 
+
+
+
+  
+
     body {
       /* background: linear-gradient(to right, #3a7bd5, #3a6073); */
       height: 100vh;
@@ -124,60 +154,201 @@
     <div class="container">
       <div>
         <div>
-          <input type="radio" id="paytm" name="pay" />
+          <input type="radio" id="paytmcheck" name="pay" />
           <p>Paytm Wallet</p>
         </div>
+
+        <div id="pay_div">
+          <label for="">Link Your Paytm Account</label>
+          <input type="number" placeholder="Enter Mobile Number" id="paytmnumber">
+          <button id="paytmbtn">Link</button>
+        </div>
+
       </div>
       <div>
         <div>
-          <input type="radio" id="google" name="pay" />
+          <input type="radio" id="googlecheck" name="pay" />
           <p>Google Pay UPI</p>
         </div>
-      </div>
-      <div>
+
         <div>
-          <input type="radio" id="credit" name="pay" />
+          <label for="">Link Your Google Pay Account</label>
+          <input type="text" placeholder="Enter Mobile Number" id="googlenumber">
+          <button id="googlebtn">Link</button>
+        </div>
+      </div>
+      <div class="bank_account">
+
+
+        <div>
+          <input type="radio" id="bankcheck" name="pay" />
           <h3>Credit/Debit/ATM Card</h3>
         </div>
+
+
+        
+        <div>
+          <label for="">Link Your Bank Account</label>
+          <div>
+
+            <input type="number" placeholder="Enter Bank Account Number" id="banknumber1">
+            <input type="number" placeholder="Re-Enter Bank Account Number" id="banknumber2">
+            <input type="text" placeholder="IFSC Code" id="bankifsc">
+            <input type="password" placeholder="c v v" id="bankcvv">
+          </div>
+  
+          <button id="bankbtn">Link</button>
+        </div>
+
+
       </div>
       <div>
         <div>
-          <input type="radio" id="net" name="pay" />
+          <input type="radio" id="netcheck" name="pay" />
           <h3>Net Banking</h3>
         </div>
+
+        <div>
+          <label for="">Link Your Net Banking Account</label>
+          <input type="text" placeholder="Enter Mobile Number" id="netnumber">
+          <button id="netbtn">Link</button>
+        </div>
+
       </div>
       <div>
         <div>
-          <input type="radio" id="cash" name="pay" />
+          <input type="radio" id="cashcheck" name="pay" />
           <h3>Cash on Delivery</h3>
         </div>
       </div>
     </div>
 
-    <button id="continue">Continue</button>
+    <button id="continue">Place Order</button>
   </body>
 
   <script>
-    let checked = document.getElementById("paytm");
+
+    let ispaymentmade = false;
+    let paytm = document.getElementById("paytm");
 
     let container = document.querySelector(".container div");
 
-    checked.addEventListener("change", function () {
-      
-      let divin = document.createElement("div");
-      
-      let label = document.createElement("label");
-      label.innerText = "Link Your Number";
+    let paydiv = document.getElementById("pay_div");
 
-      let inp = document.createElement("input");
-      inp.type = "Number";
+    let addressid = location.search.substring(1);
 
-      let confirmed = document.createElement("button");
-      confirmed.innerText = "Pay";
+    let buyitem = JSON.parse(localStorage.getItem("buy_item"));
 
-      divin.append(label, inp, confirmed);
+    
 
-      container.append(divin);
-    });
+    // console.log(buyitem);
+
+
+    document.getElementById("paytmbtn").addEventListener("click",function(){
+      if(document.getElementById("paytmcheck").checked){
+        if(document.getElementById("paytmnumber").value.length==10){
+          document.getElementById("paytmbtn").innerText="Linked";
+          document.getElementById("paytmbtn").style.background ="green"
+          document.getElementById("paytmbtn").style.border ="none"
+          ispaymentmade = true;
+
+        }else{
+          alert("please enter the correct number")
+        }
+        
+      }else{
+        alert("please check the right checkbox");
+      }
+    })
+
+
+    document.getElementById("googlebtn").addEventListener("click",function(){
+      if(document.getElementById("googlecheck").checked){
+        if(document.getElementById("googlenumber").value.length==10){
+          document.getElementById("googlebtn").innerText="Linked";
+          document.getElementById("googlebtn").style.background ="green"
+          document.getElementById("googlebtn").style.border ="none"
+          ispaymentmade = true;
+        }else{
+          alert("please enter the correct number")
+        }
+        
+      }else{
+        alert("please check the right checkbox");
+      }
+    })
+
+    document.getElementById("bankbtn").addEventListener("click",function(){
+
+      let n1 = document.getElementById("banknumber1").value;
+      let n2 = document.getElementById("banknumber1").value;
+      let ifsc = document.getElementById("bankifsc").value;
+      let cvv = document.getElementById("bankcvv").value;
+
+     
+
+      if(document.getElementById("bankcheck").checked){
+        if(n1==n2 && n1.length==15 && n2.length==15 && ifsc.length >6 && cvv.length==3){
+          document.getElementById("bankmbtn").innerText="Linked";
+          document.getElementById("bankmbtn").style.background ="green"
+          document.getElementById("bankmbtn").style.border ="none"
+          ispaymentmade = true;
+        }else{
+          alert("please enter the correct details")
+        }
+        
+      }else{
+        alert("please check the right checkbox");
+      }
+    })
+
+
+    document.getElementById("netbtn").addEventListener("click",function(){
+      if(document.getElementById("bankcheck").checked){
+        if(document.getElementById("netmnumber").value.length==10){
+          document.getElementById("netbtn").innerText="Linked";
+          document.getElementById("netbtn").style.background ="green"
+          document.getElementById("netbtn").style.border ="none"
+          ispaymentmade = true;
+        }else{
+          alert("please enter the correct number")
+        }
+        
+      }else{
+        alert("please check the right checkbox");
+      }
+    })
+
+    
+
+    // let ischeckdelivery = document.getElementById("cashcheck").checked;
+    // console.log(ischeckdelivery);
+
+    let price = 0;
+    document.getElementById("continue").addEventListener("click",function(){
+      if(ispaymentmade){
+
+        for(let i=0;i<buyitem.length;i++){
+          if(buyitem[i].id==addressid){
+            price = Number(buyitem[i].price)*Number(buyitem[i].quantity);
+            alert("Your Account will be credited by "+price);
+            window.location.href = "confirmation.html";
+          }
+        }
+       
+
+      }else if(document.getElementById("cashcheck").checked){
+        alert(`You have to pay ${price} After Delivery.`);
+
+
+
+        window.location.href = "confirmation.html";
+      }
+      else{
+        alert("please made payment or choose Cash on Delivery")
+      }
+    })
+
+
   </script>
 </html>

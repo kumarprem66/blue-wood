@@ -4,25 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Blue wood</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
   </head>
   <style>
+     @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
     * {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
     body {
       padding: 0;
       margin: 0;
     }
-    #nav {
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
+    }
+    header>h1{
+      font-size: 30px;
     }
     #main {
       width: 95%;
@@ -102,7 +109,7 @@
     .position > div > div {
       display: flex;
       align-items: center;
-      margin-top: -35px;
+      /* margin-top: -35px; */
     }
     .position > button {
       bottom: 30px;
@@ -246,39 +253,6 @@
       right: 50px;
     }
 
-    /* #section3r {
-      border: 1px solid red;
-      position: relative;
-    }
-    #section3r > div {
-      display: flex;
-      justify-content: space-between;
-      border: 5px solid purple;
-    }
-
-    #section3r > div > button {
-      position: absolute;
-      left: 0px;
-      bottom: 0px;
-    }
-
-    #section3r > div > div > p {
-      margin-bottom: -15px;
-      font-size: large;
-      border: 1px solid green;
-    }
-    #section3r > div > div > h1 {
-      border: 1px solid yellow;
-      display: block;
-    } */
-
-    /* #section3r > div > div > div {
-      position: absolute;
-      bottom: 60px;
-      left: 30px;
-      color: white;
-      border: 1px solid blue;
-    } */
 
     #middle_section4 {
       width: 95%;
@@ -353,13 +327,25 @@
       display: flex;
       justify-content: space-around;
     }
+
+
+    .sticky{
+      width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 5px 20%;
+        background: #f2f2f2;
+        transition: padding 1s;
+        z-index: 10000;
+    }
   </style>
   <body>
     <!--        nav section       -->
-    <div id="nav">
-      <h1>IKEA</h1>
+    <header id="nav">
+      <h1>BULE-WOOD</h1>
       <i class="material-icons">menu_open</i>
-    </div>
+    </header>
     <!--        main section   -->
 
     <div id="main">
@@ -371,7 +357,7 @@
         ></video>
         <div class="position">
           <div>
-            <p>The 1973 IKEA Cataloque</p>
+            <p>The 1973 BLUE-WOOD Cataloque</p>
             <div>
               <span class="material-icons"> arrow_forward </span>
               <h1>Flashback to 50 years ago</h1>
@@ -394,7 +380,7 @@
 
         <div>
           <p>
-            Online store: <span>ikea.in</span>
+            Online store: <span>blue-wood.in</span>
             <span class="material-icons"> expand_more</span>
           </p>
         </div>
@@ -410,7 +396,7 @@
     <!--      middle-section      -->
     <div class="middle_section_one videoc">
       <div>
-        <p>IKEA Everyday Rituals</p>
+        <p>BLUE-WOOD Everyday Rituals</p>
         <h1>Dare to take a cold trip</h1>
       </div>
       <div>
@@ -444,7 +430,7 @@
           alt=""
         />
         <div>
-          <p>IKEA Normay's conciious & clever campaign</p>
+          <p>BLUE-WOOD Normay's conciious & clever campaign</p>
           <h1>The trash collection</h1>
         </div>
       </div>
@@ -459,7 +445,7 @@
         <div>
           <div>
             <p>Design timeline</p>
-            <h1>Decades of IKEA bathrooms</h1>
+            <h1>Decades of BLUE-WOOD bathrooms</h1>
           </div>
           <button class="btn_des" id="btnvid">
             <span class="material-icons"> play_circle_filled </span>
@@ -623,5 +609,18 @@
       console.log("hello");
       window.location.href = "mainpage2.html"
     })
+
+
+
+    let navbar = document.getElementById("nav");
+
+    window.onscroll = function(){
+            if(window.pageYOffset >= 70){
+                navbar.classList.add("sticky");
+            }else{
+                navbar.classList.remove("sticky");
+
+            }
+        }
   </script>
 </html>
