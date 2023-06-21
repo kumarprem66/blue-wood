@@ -35,7 +35,7 @@
       padding: 7px;
     }
 
-    header {
+    .up_nav {
       display: grid;
       grid-template-columns: 8% 12% 55% 25%;
       align-items: center;
@@ -43,19 +43,19 @@
       padding-right: 20px;
       height: 80px;
     }
-    header> div:nth-child(1) {
+    .up_nav> div:nth-child(1) {
       text-align: center;
       /* position: fixed; */
     }
 
-    header > div:nth-child(2) {
+    .up_nav > div:nth-child(2) {
       padding: 20px;
     }
-    header > div:nth-child(2) > img {
+    .up_nav > div:nth-child(2) > img {
       width: 100%;
     }
 
-    header > div:nth-child(3) {
+    .up_nav > div:nth-child(3) {
       background-color: rgb(183, 190, 197);
       border-radius: 30px;
       margin-right: 40px;
@@ -65,7 +65,7 @@
       align-items: center;
     }
 
-    header > div:nth-child(3) > input {
+    .up_nav > div:nth-child(3) > input {
       width: 90%;
       height: 100%;
       font-size: 18px;
@@ -76,7 +76,7 @@
       padding: 10px;
     }
 
-    header > div:nth-child(4) {
+    .up_nav > div:nth-child(4) {
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -279,12 +279,77 @@
     #order_status{
       cursor: pointer;
     }
+
+    @media screen and (max-width:800px) {
+      
+      .product_con {
+        
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 50px;
+      }
+
+      .up_nav {
+
+        position: relative;
+      grid-template-columns: 37% 63%;
+
+
+      
+    }
+
+
+    .up_nav > div:nth-child(3) {
+ 
+      position: absolute;
+      top: 100px;
+      margin: 10px;
+      width: 90%;
+      height: 70px;
+
+    }
+
+    .nav {
+    
+      margin-top: 100px;
+    }
+
+    .bottom {
+
+      display: flex;
+      flex-direction: column;
+      background-color: darkgrey;
+      padding: 50px 20px;
+    }
+
+    .bottom_privacy {
+      display: flex;
+      flex-direction: column-reverse;
+     
+    }
+
+    .up_nav > div:nth-child(1){
+      display: none;
+
+
+    }
+
+    #main_cont > div:nth-child(2) {
+     
+      display: flex;
+      flex-direction: column;
+      padding-left: 7%;
+      padding-right: 20px;
+    }
+
+
+    }
   </style>
   <body>
     <div class="offer_pop">
       <p><i>Get 20% off* on delivery charges-limited period offer!</i></p>
     </div>
-    <header id="navbar">
+    <header class="up_nav">
       <div>
         <span class="material-icons"> menu </span>
         <h3>Menu</h3>

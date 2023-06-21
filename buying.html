@@ -48,6 +48,7 @@
     .container {
       width: 60%;
 
+      position: relative;
       margin: auto;
     }
     .container > div:nth-child(1) > div > p {
@@ -120,28 +121,44 @@
     }
     #continue {
       position: absolute;
-      bottom: 50px;
-      right: 100px;
+      bottom: 10px;
+      right: 10px; 
       padding: 10px 20px;
       border: none;
       border-radius: 20px;
       background-color: blue;
       color: white;
       cursor: pointer;
+      margin-top: 50px;
     }
 
     #add_address {
       cursor: pointer;
     }
 
-
-
-
   
 
     body {
       /* background: linear-gradient(to right, #3a7bd5, #3a6073); */
       height: 100vh;
+    }
+
+    @media screen and (max-width:450px) {
+        
+    .bank_account >div:nth-child(2)>div{
+      display: grid;
+      grid-template-columns: 2fr;
+      gap: 20px;
+
+    }
+
+    #continue {
+     
+      
+      bottom: 10px;
+      right: 10px;
+     
+    }
     }
   </style>
   <body>
@@ -221,9 +238,11 @@
           <h3>Cash on Delivery</h3>
         </div>
       </div>
+
+      <button id="continue">Place Order</button>
     </div>
 
-    <button id="continue">Place Order</button>
+    
   </body>
 
   <script>
