@@ -1,4 +1,4 @@
-## BlueWood
+## <span style="color: #27005D;">BlueWood</span>
 
 ## Overview
 
