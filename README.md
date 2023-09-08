@@ -1,4 +1,4 @@
-![Blue Wood Logo](link_to_logo_image)
+## BlueWood
 
 ## Overview
 
